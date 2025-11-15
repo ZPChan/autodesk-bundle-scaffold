@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Please replace the values below to customize the loader.
+
+The "." in the paths indicate to start the path from the current
+location, which in the loader's context is the location of this
+file.
+
+Also, for all paths, use forward-slash (/) instead of back-slash (\)
+used in Windows.
+
+The ProductCode is a GUID that uniquely identifies your app from
+any other.  Once you set it, you should keep it the same unless
+you want AutoCAD to treat it as a different app and ask for
+the user's concent again.
+
+You can create a GUID here:
+https://guidgenerator.com/
+
+-->
+<ApplicationPackage
+    SchemaVersion="1.0"
+    AppVersion="1.0"
+    Author="application author"
+    Name="appname"
+    Description="your description"
+    Icon="./Contents/Resources/icon.ico"
+    ProductCode="{00000000-0000-0000-0000-000000000000}">
+
+    <CompanyDetails
+        Name="company name"
+        Email="email@example.com" />
+
+
+    <!-- 
+    Example for loading into AutoCAD 2023
+    -->
+    <Components>
+        <!-- 
+        Version numbers can be found here:
+        https://en.wikipedia.org/wiki/AutoCAD_version_history
+
+        You can also specify a range of AutoCAD versions by specifying
+        both a SeriesMin and SeriesMax.  All paths are relative to this
+        file, PackageContents.xml
+
+        The SupportPath is an AutoCAD configuration path that you can
+        find in options.  It is commonly used by AutoCAD when searching
+        for resources like templates, xrefs, hatch patterns, etc.
+        -->
+        <RuntimeRequirements
+            OS="Win64"
+            Platform="AutoCAD*"
+            SeriesMin="24.2"
+            SeriesMax="24.2"
+            SupportPath="./Contents/AutoCAD/Support" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/2023/dot-net-assembly.dll" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/2023/another-dot-net-assembly.dll" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/lisp-code.lsp" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/compiled-lisp-code.vlx" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/partial-cui.cuix" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/arx-assembly.arx" />
+    </Components>
+
+
+    <!--
+    Example of loading for a range of AutoCAD versions (2019 - 2026).
+    -->
+    <Components>
+        <RuntimeRequirements
+            OS="Win64"
+            Platform="AutoCAD*"
+            SeriesMin="23.0"
+            SeriesMax="25.1"
+            SupportPath="./Contents/AutoCAD/Support" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/lisp-code.lsp" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/compiled-lisp-code.vlx" />
+        <ComponentEntry
+            ModuleName="./Contents/AutoCAD/Support/partial-cui.cuix" />
+    </Components>
+
+
+    <!--
+    Example for loading into Revit
+    -->
+    <Components>
+        <!--
+        Specify Revit versions or a range of versions using SeriesMin 
+        and SeriesMax.
+        -->
+        <RuntimeRequirements
+            OS="Win64"
+            Platform="Revit"
+            SeriesMin="R2024"
+            SeriesMax="R2024" />
+        <ComponentEntry 
+            ModuleName="./Contents/Revit/2024/appname.addin" />
+    </Components>
+</ApplicationPackage>

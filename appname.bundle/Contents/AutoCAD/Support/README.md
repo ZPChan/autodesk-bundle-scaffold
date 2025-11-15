@@ -1,0 +1,3 @@
+# Contents/AutoCAD/Support
+
+Put your AutoCAD support files here, like version independent lsp, fas, vlx files as well as cuix, acad.pat (hatch patterns), dcl, dwg, or whatever else you need.  Files here will be loaded according to the normal rules for loading Support files.  AutoCAD usually looks in here and other Support folders if a request for a file without a path is provided, like an xref, block, lsp file to load, etc.

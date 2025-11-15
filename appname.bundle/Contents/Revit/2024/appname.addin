@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+Example Revit Addin file
+-->
+<RevitAddins>
+    <AddIn Type="Application">
+        <Name>appname</Name>
+        <!-- Path to the assembly file to load -->
+        <Assembly>dot-net-assembly.dll</Assembly>
+        <!-- Generate a GUID to uniquely identify your app to Revit -->
+        <AddInId>00000000-0000-0000-0000-000000000000</AddInId>
+        <!--
+        This is the full namespace and class in dotnet that implements
+        Autodesk.Revit.UI.IExternalApplication
+        -->
+        <FullClassName>appname.revit_application_class</FullClassName>
+        <VendorId>arbitrary-company-abbreviation</VendorId>
+        <VendorDescription>company name, website</VendorDescription>
+    </AddIn>
+    <!--
+    You can specify multiple entries if you have multiple dll
+    files to load or if you have multiple IExternalApplication
+    objects in the same dll.
+    -->
+    <AddIn Type="Application">
+        <Name>appname</Name>
+        <Assembly>dot-net-assembly.dll</Assembly>
+        <!--
+        Generate a GUID to uniquely identify your app to Revit.
+        Can't be the same as the entry above.
+        -->
+        <AddInId>00000000-0000-0000-0000-000000000000</AddInId>
+        <FullClassName>appname.revit_application_class2</FullClassName>
+        <VendorId>arbitrary-company-abbreviation</VendorId>
+        <VendorDescription>company name, website</VendorDescription>
+    </AddIn>
+</RevitAddins>
